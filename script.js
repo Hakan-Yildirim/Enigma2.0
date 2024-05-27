@@ -12,7 +12,7 @@ function encryptMessage() {
     const secondEncrypted = CryptoJS.AES.encrypt(firstEncrypted, key2).toString();
     
     const resultElement = document.getElementById('result');
-    resultElement.innerHTML = `<strong>Şifrelenmiş Mesaj:</strong> ${secondEncrypted}`;
+    resultElement.innerHTML = `<strong>Şifrelenmiş Mesaj:</strong> <a href="#" onclick="return false;">${secondEncrypted}</a>`;
     appendCopyButton(resultElement, secondEncrypted);
 }
 
@@ -42,29 +42,8 @@ function decryptMessage() {
         }
 
         const resultElement = document.getElementById('result');
-        resultElement.innerHTML = `<strong>Çözülmüş Mesaj:</strong><br>${originalMessage}`;
+        resultElement.innerHTML = `<strong>Çözülmüş Mesaj:</strong><br><a href="#" onclick="return false;">${originalMessage}</a>`;
     } catch (error) {
         alert('Şifre çözme başarısız oldu. Lütfen geçerli anahtarları ve şifrelenmiş mesaj girin.');
     }
-}
-
-function appendCopyButton(parentElement, message) {
-    const copyButton = document.createElement('button');
-    copyButton.innerHTML = '&#128203;';
-    copyButton.className = 'copy-button';
-    copyButton.onclick = function() {
-        copyToClipboard(message);
-    };
-    parentElement.insertAdjacentHTML('beforeend', ' ');
-    parentElement.insertAdjacentElement('beforeend', copyButton);
-}
-
-function copyToClipboard(text) {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    alert('Mesaj panoya kopyalandı.');
 }
