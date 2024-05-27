@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizli İletişim Merkezi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gizli İletişim Merkezi</h1>
+        <div class="form-group">
+            <label for="message">Mesaj:</label>
+            <textarea id="message" rows="4" cols="50"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="key1">Birinci Anahtar:</label>
+            <input type="text" id="key1">
+        </div>
+        <div class="form-group">
+            <label for="key2">İkinci Anahtar:</label>
+            <input type="text" id="key2">
+        </div>
+        <button onclick="encryptMessage()">Şifrele</button>
+        <button onclick="decryptMessage()">Çöz</button>
+        <div class="result">
+            <h2>Sonuç:</h2>
+            <div id="result" class="scrollable"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
