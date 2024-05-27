@@ -42,7 +42,7 @@ function decryptMessage() {
         }
 
         const resultElement = document.getElementById('result');
-        const link = `<a href="https://${originalMessage}" target="_blank">${originalMessage}</a>`;
+        const link = `<a href="https://${originalMessage}" target="_blank">https://${originalMessage}</a>`;
         resultElement.innerHTML = `<strong>Çözülmüş Mesaj:</strong><br>${link}`;
     } catch (error) {
         alert('Şifre çözme başarısız oldu. Lütfen geçerli anahtarları ve şifrelenmiş mesaj girin.');
